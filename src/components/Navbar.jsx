@@ -73,7 +73,7 @@ const Navbar = () => {
                                 </Link>
 
                                 {/* Theme Toggle */}
-                                <ThemeToggle />
+                                {/* <ThemeToggle /> */}
 
                                 <div className="flex items-center gap-3">
                                     <div className="hidden md:flex items-center gap-2 px-4 py-2 bg-dark-bg rounded-lg border border-dark-border">

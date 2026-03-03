@@ -112,7 +112,7 @@ function AppContent() {
               }
             />
 
-            <Route
+            <Route 
               path="/admin"
               element={
                 <ProtectedRoute adminOnly>
