@@ -136,7 +136,7 @@ const ViewSubmissions = () => {
                                 <table className="w-full text-left border-collapse">
                                     <thead>
                                         <tr className="bg-white/5 border-b border-white/10 uppercase tracking-widest text-[10px] font-bold text-dark-text-secondary">
-                                            <th className="px-6 py-4">Submission ID</th>
+                                            <th className="px-6 py-4">Student_name</th>
                                             <th className="px-6 py-4">Started At</th>
                                             <th className="px-6 py-4">Submitted At</th>
                                             <th className="px-6 py-4">Duration</th>
@@ -147,7 +147,7 @@ const ViewSubmissions = () => {
                                     <tbody className="divide-y divide-white/5">
                                         {submissions.map((submission) => (
                                             <tr key={submission.id} className="hover:bg-white/[0.02] transition-colors group">
-                                                <td className="px-6 py-5 font-mono text-xs text-primary-400">#{submission.id}</td>
+                                                <td className="px-6 py-5 font-mono text-xs text-primary-400">{submission.student_name}</td>
                                                 <td className="px-6 py-5">
                                                     <div className="flex items-center gap-2 text-dark-text text-sm">
                                                         <Calendar size={14} className="text-dark-text-secondary" />

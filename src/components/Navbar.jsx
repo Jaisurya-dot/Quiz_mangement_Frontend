@@ -1,42 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { useTheme } from '../contexts/ThemeContext';
 import { LogOut, User, BookOpen, LayoutDashboard, Sun, Moon } from 'lucide-react';
 
-const ThemeToggle = () => {
-    const { isDark, toggleTheme } = useTheme();
 
-    return (
-        <button
-            onClick={toggleTheme}
-            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-            title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-            className="theme-toggle group"
-            id="theme-toggle-btn"
-        >
-            <span
-                key={isDark ? 'moon' : 'sun'}
-                className="theme-toggle-icon"
-                style={{
-                    animation: 'iconSwap 0.35s cubic-bezier(0.34,1.56,0.64,1)',
-                }}
-            >
-                {isDark ? (
-                    <Sun size={18} className="text-yellow-400" />
-                ) : (
-                    <Moon size={18} className="text-primary-500" />
-                )}
-            </span>
-
-            <style>{`
-                @keyframes iconSwap {
-                    0%   { opacity: 0; transform: rotate(-90deg) scale(0.5); }
-                    100% { opacity: 1; transform: rotate(0deg) scale(1); }
-                }
-            `}</style>
-        </button>
-    );
-};
 
 const Navbar = () => {
     const { user, logout, isAdmin } = useAuth();
@@ -46,6 +12,7 @@ const Navbar = () => {
         logout();
         navigate('/login');
     };
+
 
     return (
         <nav className="sticky top-0 z-50 bg-dark-surface/80 backdrop-blur-xl border-b border-dark-border py-4">
@@ -72,9 +39,7 @@ const Navbar = () => {
                                     <span className="hidden sm:inline">Dashboard</span>
                                 </Link>
 
-                                {/* Theme Toggle */}
-                                {/* <ThemeToggle /> */}
-
+                                
                                 <div className="flex items-center gap-3">
                                     <div className="hidden md:flex items-center gap-2 px-4 py-2 bg-dark-bg rounded-lg border border-dark-border">
                                         <User size={18} className="text-primary-400" />
@@ -90,9 +55,7 @@ const Navbar = () => {
                                 </div>
                             </>
                         ) : (
-                            <div className="flex items-center gap-3">
-                                {/* Theme Toggle for guests too */}
-                                <ThemeToggle />
+                            <div className="flex items-center gap-3">   
                                 <Link to="/login" className="btn-ghost btn-sm btn">
                                     Login
                                 </Link>
@@ -107,5 +70,6 @@ const Navbar = () => {
         </nav>
     );
 };
+
 
 export default Navbar;
